@@ -1,0 +1,109 @@
+$.utils = {
+    fileDownloadForm : function(url){
+        var $iframe = $("#fileDownloadFrame");
+        if ( $iframe.length == 0) {
+            $iframe = $('<iframe src="javascript:false;" id="fileDownloadFrame" name="fileDownloadFrame" style="display:none;"></iframe>');
+            $('body').append($iframe);
+        }
+        $iframe.empty();
+        $iframe.attr("src",url);
+    },
+    convertDuration: function (durationTime) {
+        var nSec = Math.floor(durationTime);
+        var nMin = Math.floor(nSec / 60);
+        nSec -= nMin * 60;
+        var nHour = Math.floor(nMin / 60);
+        nMin -= nHour * 60;
+        return nHour + ":" + ((nMin < 10) ? "0" : "") + nMin + ":" + ((nSec < 10) ? "0" : "") + nSec;
+    },
+    fileSizeChange: function (v_fileSize) {
+        var bytes = parseInt(v_fileSize);
+        var s = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
+        var e = Math.floor(Math.log(bytes)/Math.log(1024));
+        if(e == "-Infinity"){
+            return "0 "+s[0];
+        } else{
+            return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+        }
+    },
+    fileSendSpeed: function (v_fileSize) {
+        var bytes = parseInt(v_fileSize);
+        var s = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
+        var e = Math.floor(Math.log(bytes)/Math.log(1024));
+        if(e == "-Infinity"){
+            return "0 "+s[0];
+        } else{
+            return (bytes/Math.pow(1024, Math.floor(e))).toFixed(1)+" "+s[e];
+        }
+    },
+    getUUID: function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 3 | 8);
+            return v.toString(16);
+        });
+    },
+    currentDate: function (str) {
+        var today = new Date();
+        var year = today.getFullYear() + "";
+        var month = today.getMonth() + 1 < 10 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1) + "";
+        var day = today.getDate() < 10 ? "0" + today.getDate() : today.getDate() + "";
+        today.getho
+        if (str == "YYYY") {
+            return year;
+        } else if (str == "MM") {
+            return month;
+        } else if (str == "DD") {
+            return day;
+        } else if (str == "YYYYMM") {
+            return year + "" + month;
+        } else if (str == "YYYYMMDD") {
+            return year + "" + month + "" + day;
+        } else {//yyyymmdd_hhmiss
+            return year + "" + month + "" + day + "_" + today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
+        }
+    },
+    byteLength: function (s) {
+        if (s == null || s.length == 0) {
+            return 0;
+        }
+
+        var size = 0;
+        for (var i = 0; i < s.length; i++) {
+            size += this.charByteSize(s.charAt(i));
+        }
+        return size;
+    },
+    cutByteLength: function (s, len) {
+        if (s == null || s.length == 0) {
+            return 0;
+        }
+
+        var size = 0;
+        var rIndex = s.length;
+
+        for (var i = 0; i < s.length; i++) {
+            size += this.charByteSize(s.charAt(i));
+            if (size == len) {
+                rIndex = i + 1;
+                break;
+            } else if (size > len) {
+                rIndex = i;
+                break;
+            }
+        }
+        return s.substring(0, rIndex);
+    },
+    getBrowser : function(){
+        var agent = navigator.userAgent.toLowerCase();
+        var browser = "";
+        if(agent.indexOf("chrome") > -1){
+            browser = "chrome";
+        }else if(agent.indexOf("edge") > -1){
+            browser = "edge";
+        }else{
+            browser = "ie"
+        }
+        return browser;
+    },
+};
+

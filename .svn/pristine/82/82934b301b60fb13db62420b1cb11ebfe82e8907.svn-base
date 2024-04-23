@@ -1,0 +1,743 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="ui"     uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%
+  /**
+  * @Class Name : egovSampleList.jsp
+  * @Description : Sample List 화면
+  * @Modification Information
+  *
+  *   수정일         수정자                   수정내용
+  *  -------    --------    ---------------------------
+  *  2009.02.01            최초 생성
+  *
+  * author 실행환경 개발팀
+  * since 2009.02.01
+  *
+  * Copyright (C) 2009 by MOPAS  All right reserved.
+  */
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
+<html lang="ko">
+
+<!-- Mirrored from iharchive.ifac.or.kr/archives/main by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Jan 2024 04:26:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="title" content="인천문화재단">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="Author" content="">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="Pragma" content="No-Cache">
+	<meta name="ROBOTS" content="ALL">
+	<meta name="revisit-after" content="1 Days">
+	<meta name="keyword" content="">
+	<meta name="description" content="인천문화재단">
+	<meta name="google" content="인천문화재단">
+	<meta name="format-detection" content="telephone=no">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="인천문화재단">
+	<meta property="og:image" content="/archives/resources/images/logo01.png;jsessionid=318D068F7E8FCAF2B6EF2622EC6BCD7B">
+	<meta property="og:site_name" content="인천문화재단">
+	<meta property="og:description" content="인천문화재단">
+	<meta property="og:url" name="url" content="">
+	<title>인천 문화유산 디지털 아카이브</title>
+	
+	<link rel="SHORTCUT ICON" href="resources/images/favicon.png" />
+	
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/archive/resources/css/fonts.css?ver=<%= System.currentTimeMillis() %>">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/archive/resources/css/reset.css?ver=<%= System.currentTimeMillis() %>">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/archive/resources/css/responsive.css?ver=<%= System.currentTimeMillis() %>">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/archive/resources/css/slick.css?ver=<%= System.currentTimeMillis() %>">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/archive/resources/css/slick-theme.css?ver=<%= System.currentTimeMillis() %>">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/archive/resources/css/style5db9.css?ver=<%= System.currentTimeMillis() %>">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/archive/resources/css/swiper-bundle.css?ver=<%= System.currentTimeMillis() %>">
+</head>
+
+<script src="${pageContext.request.contextPath}/archive/resources/vendor/jquery/jquery-1.11.2.js?ver=<%= System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/archive/resources/js/common/utils.js?ver=<%= System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/archive/resources/js/brands.js?ver=<%= System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/archive/resources/js/slick.min.js?ver=<%= System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/archive/resources/js/slick.js?ver=<%= System.currentTimeMillis() %>"></script>
+<script src="${pageContext.request.contextPath}/archive/resources/js/all.js?ver=<%= System.currentTimeMillis() %>" crossorigin="anonymous"></script>
+<script src="${pageContext.request.contextPath}/archive/resources/js/swiper-bundle.js?ver=<%= System.currentTimeMillis() %>"></script>
+
+<script type="text/javascript">
+	$(window).on("scroll",function(){
+
+		if($(window).scrollTop()>100){
+			$("#header-area").removeClass("flex").addClass("fixedTop");
+			//$(".cbp-spmenu-push").removeClass("flex").addClass("fixedTop");
+		}
+		else{
+			$("#header-area").removeClass("fixedTop").addClass("flex");
+			//$(".cbp-spmenu-push").removeClass("fixedTop").addClass("flex");
+		}
+	});
+
+</script>
+
+<script type="text/javascript">
+	if (navigator.userAgent.match(/Android|Mobile|iPhone|iPad|iPod|BlackBerry/i)) {
+		//스마트폰과 태블릿 환경에서 실행될 스크립트
+		$('head').append('<link rel="stylesheet" href="css/responsive.css"  type="text/css" media="all" />');
+
+	}else if (screen.width>=780 && screen.width<=1280){
+		$('head').append(' <meta name="viewport" content="width=1280, user-scalable=yes">');
+	}
+</script>
+<body>
+<div id="wrapper" class="main_all">
+	<div id="header" class="header_all">
+				
+
+				
+				<div class="mo_visual_main">
+					<div class="visual_inner">
+						<ul>
+							
+								<li>
+									<a href="javascript:void(0);">
+										<div class="titie_bx">
+											<p>문화유산</p>
+											<span>
+												인천의 지정/비지정 문화유산 소개
+											</span>
+										</div>
+										<div class="img_bx">
+											<img src="https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM9" alt="">
+										</div>
+									</a>
+								</li>
+							
+								<li>
+									<a href="javascript:void(0);">
+										<div class="titie_bx">
+											<p>영상콘텐츠</p>
+											<span>
+												강도궁궐 CG 영상 및 메이킹 영상, 볼음도 248명의 삶, 인천 섬 생활사 영상 등 인천문화유산센터가 제작한 영상콘텐츠 소개
+											</span>
+										</div>
+										<div class="img_bx">
+											<img src="https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM12" alt="">
+										</div>
+									</a>
+								</li>
+							
+								<li>
+									<a href="javascript:void(0);">
+										<div class="titie_bx">
+											<p>항일운동</p>
+											<span>
+												인천의 항일운동 관련 자료 소개
+											</span>
+										</div>
+										<div class="img_bx">
+											<img src="https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM13" alt="">
+										</div>
+									</a>
+								</li>
+							
+								<li>
+									<a href="javascript:void(0);">
+										<div class="titie_bx">
+											<p>6.25 전쟁</p>
+											<span>
+												인천 사람들이 겪은 6.25 전쟁 관련 자료 소개
+											</span>
+										</div>
+										<div class="img_bx">
+											<img src="https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM14" alt="">
+										</div>
+									</a>
+								</li>
+							
+								<li>
+									<a href="javascript:void(0);">
+										<div class="titie_bx">
+											<p>인천산업사</p>
+											<span>
+												
+											</span>
+										</div>
+										<div class="img_bx">
+											<img src="https://iharchive.ifac.or.kr/thumb/2023/08/MCMSHM20" alt="">
+										</div>
+									</a>
+								</li>
+							
+								<li>
+									<a href="javascript:void(0);">
+										<div class="titie_bx">
+											<p>센터 간행물</p>
+											<span>
+												강화고려역사재단 시절부터 현재 인천문화유산센터까지 간행물 소개
+											</span>
+										</div>
+										<div class="img_bx">
+											<img src="https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM15" alt="">
+										</div>
+									</a>
+								</li>
+							
+						</ul>
+					</div>
+				</div>
+				<!--//MOBILE MENU -->
+
+				<div class="visual_main">
+					<div class="visual_inner">
+						
+							<div class="item item01 bannerItem" data-url="javascript:void(0);">
+								<div class="pc_item" style="background-image: url(https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM9)">
+									<div class="pc_item_title"> <p>문화유산</p> <!-- clas="c_fffe61" 노란색폰트컬러 -->
+										<div class="pc_item_width">
+											<span>인천의 지정/비지정 문화유산 소개</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="item item02 bannerItem" data-url="javascript:void(0);">
+								<div class="pc_item" style="background-image: url(https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM12)">
+									<div class="pc_item_title"> <p>영상콘텐츠</p> <!-- clas="c_fffe61" 노란색폰트컬러 -->
+										<div class="pc_item_width">
+											<span>강도궁궐 CG 영상 및 메이킹 영상, 볼음도 248명의 삶, 인천 섬 생활사 영상 등 인천문화유산센터가 제작한 영상콘텐츠 소개</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="item item03 bannerItem" data-url="javascript:void(0);">
+								<div class="pc_item" style="background-image: url(https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM13)">
+									<div class="pc_item_title"> <p>항일운동</p> <!-- clas="c_fffe61" 노란색폰트컬러 -->
+										<div class="pc_item_width">
+											<span>인천의 항일운동 관련 자료 소개</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="item item04 bannerItem" data-url="javascript:void(0);">
+								<div class="pc_item" style="background-image: url(https://iharchive.ifac.or.kr/thumb/2022/12/MCMSHM14)">
+									<div class="pc_item_title"> <p>6.25 전쟁</p> <!-- clas="c_fffe61" 노란색폰트컬러 -->
+										<div class="pc_item_width">
+											<span>인천 사람들이 겪은 6.25 전쟁 관련 자료 소개</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="item item05 bannerItem" data-url="javascript:void(0);">
+								<div class="pc_item" style="background-image: url(https://iharchive.ifac.or.kr/thumb/2023/08/MCMSHM20)">
+									<div class="pc_item_title"> <p>인천산업사</p> <!-- clas="c_fffe61" 노란색폰트컬러 -->
+										<div class="pc_item_width">
+											<span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="item item06 bannerItem" data-url="javascript:void(0);">
+								<div class="pc_item" style="background-image: url(https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM15)">
+									<div class="pc_item_title"> <p>센터 간행물</p> <!-- clas="c_fffe61" 노란색폰트컬러 -->
+										<div class="pc_item_width">
+											<span>강화고려역사재단 시절부터 현재 인천문화유산센터까지 간행물 소개</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+						<div id="dark_bg" class="dark_bg"></div>
+						<script type="text/javascript">
+
+							// let dark  = document.getElementById('dark_bg');
+
+							// 	$('.visual_main .item').mouseover(function() {
+							// 						$('.dark_bg').addClass('active')
+
+							// 					});
+							// 					$('.visual_main .item').mouseleave(function() {
+							// 						$('.dark_bg').removeClass('active')
+
+							// 					});
+
+						</script>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="sub_section" class="section_all">
+
+				<!-- 섹션1 -->
+				
+				<!-- //섹션1 -->
+				<!-- 섹션2 -->
+				<div class="section_02 bg_all">
+					<div class="section_inner width_1800">
+						<div class="title_box">
+							<h2>문화유산 VR</h2>
+							<span>평소 우리 주변의 문화유산을 VR로 볼 수 있습니다.</span>
+						</div>
+						<div class="list_box">
+							<div class="list_items">
+								<div class=" list_style">
+									<div class="section_list02 list01">
+										
+											<div class="li vrItem" data-open="" data-iidx="1199" data-lcode="0002">
+												<a>
+													
+														<div class="img_box"><img src="https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM135" alt="사진1"></div>
+													
+													
+													<p>의선당 VR</p>
+													<button>내용보기</button>
+												</a>
+											</div>
+										
+											<div class="li vrItem" data-open="" data-iidx="1196" data-lcode="0002">
+												<a>
+													
+														<div class="img_box"><img src="https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM134" alt="사진1"></div>
+													
+													
+													<p>인천세관 구 창고와 부속동(인천세관역사공원) VR</p>
+													<button>내용보기</button>
+												</a>
+											</div>
+										
+											<div class="li vrItem" data-open="" data-iidx="1195" data-lcode="0002">
+												<a>
+													
+														<div class="img_box"><img src="https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM133" alt="사진1"></div>
+													
+													
+													<p>자유공원 VR</p>
+													<button>내용보기</button>
+												</a>
+											</div>
+										
+											<div class="li vrItem" data-open="" data-iidx="1193" data-lcode="0002">
+												<a>
+													
+														<div class="img_box"><img src="https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM132" alt="사진1"></div>
+													
+													
+													<p>내동골목 VR</p>
+													<button>내용보기</button>
+												</a>
+											</div>
+										
+											<div class="li vrItem" data-open="" data-iidx="1194" data-lcode="0002">
+												<a>
+													
+														<div class="img_box"><img src="https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM131" alt="사진1"></div>
+													
+													
+													<p>내리교회(제물포 웨슬리 예배당) VR</p>
+													<button>내용보기</button>
+												</a>
+											</div>
+										
+											<div class="li vrItem" data-open="" data-iidx="1192" data-lcode="0002">
+												<a>
+													
+														<div class="img_box"><img src="https://iharchive.ifac.or.kr/thumb/2023/01/MCMSHM130" alt="사진1"></div>
+													
+													
+													<p>화도진지 VR</p>
+													<button>내용보기</button>
+												</a>
+											</div>
+										
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //섹션2 -->
+				<!-- 섹션3 -->
+				<div class="section_03 bg_all">
+					<div class="title_box title_box_none">
+						<h2>인천 역사&문화유산 키워드</h2>
+						<span>관심 있는 키워드를 선택하여 인천의 역사와 문화유산을 수집하세요.</span>
+					</div>
+					<div class="menu_keyword_list_box">
+						<ul>
+							
+								
+									<li>
+										<input type="radio" class="keyword-list" data-code="0002" name="tabmenu" id="tab1" checked><label for="tab1"><span>문화유산 키워드</span>	</label>
+									</li>
+								
+								
+							
+								
+								
+									<li>
+										<input type="radio" class="keyword-list" data-code="0004" name="tabmenu" id="tab2"><label for="tab2"><span>영상콘텐츠 키워드</span>	</label>
+									</li>
+								
+							
+								
+								
+									<li>
+										<input type="radio" class="keyword-list" data-code="0005" name="tabmenu" id="tab3"><label for="tab3"><span>항일운동 키워드</span>	</label>
+									</li>
+								
+							
+								
+								
+									<li>
+										<input type="radio" class="keyword-list" data-code="0006" name="tabmenu" id="tab4"><label for="tab4"><span>6.25 전쟁 키워드</span>	</label>
+									</li>
+								
+							
+								
+								
+									<li>
+										<input type="radio" class="keyword-list" data-code="0019" name="tabmenu" id="tab5"><label for="tab5"><span>인천산업사 키워드</span>	</label>
+									</li>
+								
+							
+								
+								
+									<li>
+										<input type="radio" class="keyword-list" data-code="0007" name="tabmenu" id="tab6"><label for="tab6"><span>센터 간행물 키워드</span>	</label>
+									</li>
+								
+							
+								
+								
+									<li>
+										<input type="radio" class="keyword-list" data-code="0020" name="tabmenu" id="tab7"><label for="tab7"><span>개성사전 키워드</span>	</label>
+									</li>
+								
+							
+						</ul>
+					</div>
+					<div class="section_inner_two">
+						<div class="keyword_box width_1800">
+							<div class="title_box">
+								<h2>인천 역사&문화유산 키워드</h2>
+								<span>관심 있는 키워드를 선택하여 인천의 역사와 문화유산을 수집하세요.</span>
+							</div>
+							<div class="keyword_items">
+								<ul class="keyword-item">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //섹션3 -->
+
+			</div>
+
+		
+
+		<style>
+			/* 메인 팝업 */
+			.main_popup {position:fixed;top: 25%; left: 20%;width: 400px;margin-left: -200px;-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);-box-shadow: 0 0 10px rgba(0,0,0,.4);z-index: 9999;}
+			.layerPopup .imgBox{overflow: hidden;width: 400px;height: 400px;line-height:400px;background:#DEDEDE;}
+			.layerPopup .imgBox img{margin-top: -3px;}
+
+			.layerPopup .popup_bottom{width:100%;height:54px;margin:-1px 10px 0 0;padding:10px 20px;border-top:1px solid #CCC;background:#F9F9F9;}
+			.layerPopup .closeChk{float: left;}
+			.layerPopup .closeChk label{line-height:34px;font-size:13px;letter-spacing:-0.04em;color:#606060;cursor:pointer}
+			.layerPopup .closeChk label input{width:20px;height:20px;margin-left:8px;margin-top:-3px;vertical-align:middle}
+
+			.layerPopup .closePopup{float: right;}
+			.layerPopup .closePopup .btnClose{padding:6px 20px;background:#FFF;color:#303030;border:1px solid #CCC;cursor:pointer;}
+			.layerPopup .closePopup .btnClose:hover{background: #303030;border:1px solid #303030;color:#FFF;transition: all 0.5s ease;}
+		</style>
+	<script>
+				$(document).ready(function () {
+					$.getKeywordItem("0002");
+				});
+			</script>
+			<script>
+				$.getKeywordItem = function(code){
+					$.get("/archives/main/keyword/item",{
+						code: code
+					},function(data){
+						$(".keyword-item").empty();
+						let innerHtml = "";
+						for(let i=0; i<data.keywordItem.length; i++){
+							innerHtml += "<li>";
+							innerHtml += "<a class='keyword-click' data-code='"+data.keywordItem[i].mainCode+"' data-keyword='"+data.keywordItem[i].title+"'>"+data.keywordItem[i].title+"</a>";
+							innerHtml += "</li>";
+						}
+						$(".keyword-item").append(innerHtml);
+					}, "json");
+				}
+
+				$(".keyword-list").on("click",function(){
+					let code = $(this).attr('data-code');
+					$.getKeywordItem(code);
+				})
+
+				$(".monthItem").on("click",function(){
+					let iidx = $(this).attr('data-iidx');
+					let lcode = $(this).attr('data-lcode');
+					window.location = "/archives/item/view?categoryLargeGroupCode="+lcode+"&iidx="+iidx;
+				})
+
+				$(".bannerItem").on("click",function(){
+					let url = $(this).attr("data-url");
+					window.location = url;
+				})
+
+				$(".yearItem").on("click",function(){
+					let iidx = $(this).attr("data-iidx");
+					let lcode = $(this).attr("data-lcode");
+					window.location = "/archives/item/view?categoryLargeGroupCode="+lcode+"&iidx="+iidx;
+				})
+
+                $(document).on("click",".vrItem",function(){
+					/* let openType = $(this).attr("data-open");
+					let iidx = $(this).attr("data-iidx");
+					let lcode = $(this).attr("data-lcode");
+					if(openType == 'B'){
+						window.open("/archives/item/view?categoryLargeGroupCode="+lcode+"&iidx="+iidx,"_blank");
+					}else{
+						window.location = "/archives/item/view?categoryLargeGroupCode="+lcode+"&iidx="+iidx;
+					} */
+				})
+
+				$("body").delegate(".keyword-click","click",function(){
+					let title = $(this).attr("data-keyword");
+					let code = $(this).attr("data-code");
+					if(code == '0002'){
+						window.location = "/archives/search/list?searchType=ALL&searchData="+title;
+					}else if(code == '0004'){
+						window.location = "/archives/search/list?searchType=ALL&searchData="+title;
+					}else if(code == '0005'){
+						window.location = "/archives/search/list?searchType=ALL&searchData="+title;
+					}else if(code == '0006'){
+						window.location = "/archives/search/list?searchType=ALL&searchData="+title;
+					}else if(code == '0007'){
+						window.location = "/archives/search/list?searchType=ALL&searchData="+title;
+					}else if(code == '0019'){
+                        window.location = "/archives/search/list?searchType=ALL&searchData="+title;
+                    }else if(code == '0020'){
+                        window.location = "/archives/search/list?searchType=ALL&searchData="+title;
+                    }
+				});
+
+
+				//팝업 닫기[s]
+				$(".popupCloseAction").on("click", function(e){
+					e.preventDefault();
+					$('.main_popup').hide();
+				});
+				$(".popupCloseDayAction").on("click", function(e){
+					var midx = $(this).attr("data-midx");
+					$.cookie("popup"+midx, "false", {path:"/", expires:1});
+					$('.main_popup').hide();
+				});
+				//팝업 닫기[e]
+			</script>
+
+</div>
+
+
+
+<!-- 검색 모달창 띄우기 -->
+<div id="myModal01" class="modal search-modal">
+	<!-- Modal content -->
+	<div class="modal-content">
+		<div class="search-modal-top">
+			<p>통합검색</p>
+			<span class="close-modalPopup1"><a class="#none close" onclick="closeModal();">&#215;</a></span>
+		</div>
+		<div class="img-box">
+			<div class="input-inner"><input type="text" class="searchText" onkeyup="searchMainEnter()" placeholder="검색어를 입력하세요."><button class="searchBtn">검색</button></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div id="dark01" class="overlay"> </div>
+
+
+<div id="page-top" class="page-top">
+	<a title="상단으로"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+	<span class="sound-only"></span>
+</div>
+<div id="dark">   </div>
+<script type="text/javascript">
+	$(document).on('ready', function() {
+		$(".visual_inner ul").slick({
+			dots: false,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+
+
+		});
+
+		$(".section_slider01").slick({
+			dots: false,
+			infinite: false,
+			speed: 300,
+			slidesToShow: 4,
+
+			responsive: [
+				{
+					breakpoint: 1790,
+					settings: {
+						slidesToShow: 4,
+						slidesToScroll: 4,
+						infinite: false,
+						dots: true
+					}
+				},
+				{
+					breakpoint: 1500,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+						dots: true
+					}
+				},
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						dots: true
+					}
+				},
+				{
+					breakpoint: 580,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						dots: true
+					}
+				}
+
+			]
+
+		});
+
+		$(".page-top").on("click",function(){
+			window.scrollTop();
+		})
+
+		$(".section_list02").slick({
+			dots:false,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay:true,
+			autoplaySpeed:1000,
+
+			responsive: [
+
+				{
+					breakpoint: 1360,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1,
+						centerMode: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						centerMode: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 580,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						infinite: false,
+						dots:true,
+						autoplay:false,
+					}
+				}
+
+			]
+
+		});
+	});
+
+	let modal = document.getElementById('myModal01');
+	let overlay  = document.getElementById('dark01');
+
+
+	function openModal() {
+		modal.classList.add('active')
+		overlay.classList.add('active')
+		//modal2.classList.add('active')
+
+	}
+	function closeModal() {
+		modal.classList.remove('active')
+		overlay.classList.remove('active')
+		//modal2.classList.remove('active')
+
+	}
+
+	function searchMainEnter(){
+		if(window.event.keyCode == 13){
+			let searchData = $(".searchText").val();
+			if(searchData.length < 2) {
+				alert('두 글자 이상 검색해주세요.')
+				return;
+			}
+			window.location = "/archives/search/list?searchData="+searchData+"&searchType=ALL";
+		}
+	}
+
+	//탑으로
+	$(document).ready(function () {
+		$( window ).scroll( function() {
+			if($(this).scrollTop() > 100 ) {
+				$('#page-top').fadeIn();
+			}else{
+				$('#page-top').fadeOut();
+			}
+		});
+		$('#page-top').click(function(){
+			//alert('dd');
+			$('html, body').animate({ scrollTop :0},800);
+			return false;
+		});
+
+		$('.searchBtn').click(function(){
+			let searchData = $(".searchText").val();
+			if(searchData.length < 2) {
+				alert('두 글자 이상 검색해주세요.')
+				return;
+			}
+			window.location = "/archives/search/list?searchData="+searchData+"&searchType=ALL";
+		})
+	});
+</script>
+</body>
+
+<!-- Mirrored from iharchive.ifac.or.kr/archives/main by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Jan 2024 04:26:18 GMT -->
+</html>
+
